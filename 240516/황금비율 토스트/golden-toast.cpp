@@ -23,19 +23,19 @@ int main() {
         char cmd;
         cin >> cmd;
 
-        if(command == 'L') {
+        if(cmd == 'L') {
             if(it != l.begin())   
                 it--;             
         } 
-        else if(command == 'R') {
+        else if(cmd == 'R') {
             if(it != l.end())     
                 it++;           
         }
-        else if(command == 'D') {
+        else if(cmd == 'D') {
             if(it != l.end())
                 it = l.erase(it); 
         }
-        else if(command == 'P') {
+        else if(cmd == 'P') {
             char c;
             cin >> c;
             l.insert(it, c);      
