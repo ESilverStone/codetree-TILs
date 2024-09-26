@@ -20,55 +20,54 @@ int main() {
 
     int ans = 0;
 
-    // 검사
-    if(n==1) {
-        if(m == 1) ans = 1;
-    }
-    else
+    for(int i=0; i<n; i++)
     {
+        int maxCntRow = 1;
 
-        for(int i=0; i<n; i++)
+        for(int j=1; j<n; j++)
         {
-            int cnt_row = 1;
-            int cnt_col = 1;
-            bool s_row = false;
-            bool s_col = false;
+            //if(maxCntRow >= m) break;
 
-            
-
-            for(int j=1; j<n; j++)
+            if(arr[i][j] == arr[i][j-1])
             {
-                if(arr[i][j] == arr[i][j-1])
-                {
-                    cnt_row++;
-                } else {
-                    if(cnt_row >= m) {
-                        ans++;
-                        s_row = true;
-                    }
-                    cnt_row = 1;
-                }
-
-                if(arr[j][i] == arr[j-1][i])
-                {
-                    cnt_col++;
-                } else {
-                    if(cnt_row >= m) {
-                        ans++;
-                        s_col = true;
-                    }
-                    cnt_col = 1;
-                }
+                maxCntRow++;
+            }
+            else
+            {
+                maxCntRow = 1;
             }
 
-            if(!s_row && cnt_row >= m) ans++;
-            if(!s_col && cnt_col >= m) ans++;
+            if(maxCntRow >= m) break;
+        }
 
-
+        if(maxCntRow >= m) {
+            ans++;
         }
     }
 
+    for(int i=0; i<n; i++)
+    {
+        int maxCntCol = 1;
 
+        for(int j=1; j<n; j++)
+        {
+            if(arr[j][i] == arr[j-1][i])
+            {
+                maxCntCol++;
+            }
+            else
+            {
+                maxCntCol = 1;
+            }
+
+            if(maxCntCol >= m) break;
+        }
+        if(maxCntCol >= m) {
+            ans++;
+        }
+    }
+    
+    //ans = maxCntRow + maxCntCol;
 
     cout << (ans);
 
