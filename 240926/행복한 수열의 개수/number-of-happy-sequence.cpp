@@ -31,11 +31,15 @@ int main() {
             if(arr[i][j] == arr[i][j-1])
             {
                 cnt_row++;
+            } else {
+                cnt_row = 1;
             }
 
             if(arr[j][i] == arr[j-1][i])
             {
                 cnt_col++;
+            } else {
+                cnt_col = 1;
             }
         }
 
