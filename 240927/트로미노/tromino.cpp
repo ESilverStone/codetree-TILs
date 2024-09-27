@@ -30,7 +30,7 @@ int main() {
     {
         for(int j=0; j<m; j++)
         {
-            vector<int> nums(4);
+            vector<int> nums;
 
             for(int k=0; k<4; k++)
             {
