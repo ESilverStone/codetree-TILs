@@ -96,11 +96,12 @@ int main() {
             cin >> arr[i+1][j+1];
         }
     }
-    cin >> r1 >> c1 >> r2 >> c2;
 
     // q 회수만큼 회전
     for(int i=0; i<q; i++)
     {
+        cin >> r1 >> c1 >> r2 >> c2;
+
         rotation();
     }
 
