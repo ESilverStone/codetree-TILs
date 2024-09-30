@@ -29,20 +29,23 @@ int main() {
     }
 
     // 로테이션
-    for(int i=0; i<m; i++)
+    for(int k=0; k<t; k++)
     {
-        for(int j=n-1; j>0; j--)
+        for(int i=0; i<m; i++)
         {
-            arr[i][j] = arr[i][j-1];
-        }
+            for(int j=n-1; j>0; j--)
+            {
+                arr[i][j] = arr[i][j-1];
+            }
 
-        if(i-1 < 0)
-        {
-            arr[i][0] = temp[m-1];
-        }
-        else 
-        {
-            arr[i][0] = temp[i-1];
+            if(i-1 < 0)
+            {
+                arr[i][0] = temp[m-1];
+            }
+            else 
+            {
+                arr[i][0] = temp[i-1];
+            }
         }
     }
 
