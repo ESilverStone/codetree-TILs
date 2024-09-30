@@ -22,15 +22,16 @@ int main() {
 
     vector<int> temp(m);
 
-    // temp 저장
-    for(int i=0; i<m; i++)
-    {
-        temp[i] = arr[i][n-1];
-    }
 
     // 로테이션
     for(int k=0; k<t; k++)
     {
+        // temp 저장
+        for(int i=0; i<m; i++)
+        {
+            temp[i] = arr[i][n-1];
+        }
+        
         for(int i=0; i<m; i++)
         {
             for(int j=n-1; j>0; j--)
