@@ -8,33 +8,33 @@ string str;
 
 int encoding() {
 
-    char temp = str[0];
-    int cnt = 0;
+    int cnt = 1;
     int ans = 0;
 
-    for(int i=0; i<str.length(); i++) 
+    for(int i=1; i<str.length(); i++) 
     {
-        if(temp != str[i])
-        {
-            ans += cnt / 10 + 2; 
-            cnt = 1;
-
-        }
-        else
-        {
+        if(str[i] == str[i-1]) {
             cnt++;
         }
-
-        temp = str[i];
+        else {
+            ans += 1;
+            if(cnt >= 1) {
+                ans += to_string(cnt).length();
+            }
+            cnt = 1;
+        }
     }
-
+    ans += 1;
+    if (cnt >= 1) {
+        ans += to_string(cnt).length();
+    }
     return ans;
 }
 
 
 void shift() {
     int last = str.length() - 1;
-    char temp = str[last];
+    char temp = str.back();
 
     for(int i=last; i>0; i--)
     {
@@ -48,15 +48,15 @@ int main() {
 
     cin >> str;
 
-    int maxV = 0;
+    int minV = 1e9;
 
     for(int i=0; i<str.length(); i++) 
     {
+        minV = min(minV, encoding());
         shift();
-        maxV = max(maxV, encoding());
     }
 
-    cout << maxV;
+    cout << minV;
 
     return 0;
 }
