@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 int n, m, r, c;
@@ -10,13 +11,16 @@ int dirY[] = {-1,1,0,0};
 int dirX[] = {0,0,-1,1};
 
 void func(int time) {
+    int t = pow(2, time-1);
+    temp = arr;
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             if(arr[i][j] == 1)
             {
                 for(int d=0; d<4; d++){
-                    int newY = i + dirY[d] * time;
-                    int newX = j + dirX[d] * time;
+                    int newY = i + dirY[d] * t;
+                    int newX = j + dirX[d] * t;
 
                     if(newX <= 0 || newY <= 0 || newX > n || newY > n) continue;
 
@@ -28,11 +32,7 @@ void func(int time) {
         }
     }
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
-            if(temp[i][j] == 1) arr[i][j] = 1;
-        }
-    }
+    arr = temp;
 }
 
 int main() {
