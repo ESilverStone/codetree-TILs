@@ -13,7 +13,7 @@ int fibo(int n) {
 
     if(n > 3)
     {
-        memo[n] = fibo(n-2) + fibo(n-3);
+        memo[n] = (fibo(n-2) + fibo(n-3)) % 10007;
     }
 
     return memo[n];
